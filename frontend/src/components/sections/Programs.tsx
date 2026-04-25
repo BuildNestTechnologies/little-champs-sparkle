@@ -50,7 +50,8 @@ export const Programs = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const track = trackRef.current;
-      if (!track) return;
+      const container = containerRef.current;
+      if (!track || !container) return;
 
       const totalScrollWidth = track.scrollWidth - window.innerWidth;
 
@@ -58,7 +59,7 @@ export const Programs = () => {
         x: -totalScrollWidth,
         ease: "none",
         scrollTrigger: {
-          trigger: containerRef.current,
+          trigger: container,
           pin: true,
           scrub: 1,
           start: "top top",
@@ -66,30 +67,15 @@ export const Programs = () => {
           invalidateOnRefresh: true,
         },
       });
-
-      // Stagger items internal animations
-      PROGRAMS.forEach((_, i) => {
-        gsap.from(`.program-card-${i}`, {
-          scale: 0.8,
-          opacity: 0,
-          rotateY: 20,
-          scrollTrigger: {
-            trigger: `.program-card-${i}`,
-            containerAnimation: gsap.getById("mainTrack"), // Note: need to handle this differently with GSAP hook
-            start: "left center",
-            toggleActions: "play none none reverse",
-          },
-        });
-      });
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} id="programs" className="scroll-track-container bg-cream dark:bg-background">
-      <div className="scroll-track-sticky">
-        <div className="absolute top-12 left-1/2 -translate-x-1/2 text-center z-10 w-full px-4">
+    <section ref={containerRef} id="programs" className="overflow-hidden bg-cream dark:bg-background">
+      <div className="relative h-screen w-full flex flex-col justify-center">
+        <div className="absolute top-12 left-1/2 -translate-x-1/2 text-center z-20 w-full px-4">
           <span className="font-hand text-3xl text-leaf block">tailored for every age</span>
           <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink dark:text-foreground">
             Our <span className="gradient-text">Programs</span>
