@@ -2,7 +2,7 @@ import { Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
 
 export const TopBar = () => (
   <div className="hidden md:block bg-ink dark:bg-card text-white dark:text-foreground text-sm transition-colors duration-400">
-    <div className="container flex items-center justify-between py-2">
+    <div className="container flex items-center justify-between py-1.5">
       <div className="flex items-center gap-5">
         <a href="tel:+917387326222" className="flex items-center gap-2 hover:text-sunshine transition-colors group">
           <Phone className="w-4 h-4 group-hover:animate-shake" />

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Preloader } from "@/components/Preloader";
 import { TopBar } from "@/components/TopBar";
 import { Header } from "@/components/Header";
@@ -14,13 +15,25 @@ import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
 import { ChatBot } from "@/components/ChatBot";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
+import { useScrolled } from "@/hooks/useScrolled";
+
 const Index = () => {
+  const scrolled = useScrolled(20);
+
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
+    <div className="min-h-screen bg-background">
       <Preloader />
-      <TopBar />
-      <Header />
-      <main>
+      <div className="fixed top-0 left-0 w-full z-50">
+        <motion.div
+          initial={false}
+          animate={{ height: scrolled ? 0 : "auto", opacity: scrolled ? 0 : 1 }}
+          className="overflow-hidden"
+        >
+          <TopBar />
+        </motion.div>
+        <Header scrolled={scrolled} />
+      </div>
+      <main className="overflow-x-hidden pt-[70px] md:pt-[105px]">
         <Hero />
         <About />
         <Features />

@@ -15,16 +15,21 @@ const NAV = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const Header = () => {
-  const scrolled = useScrolled(20);
+interface HeaderProps {
+  scrolled?: boolean;
+}
+
+export const Header = ({ scrolled: propScrolled }: HeaderProps) => {
+  const internalScrolled = useScrolled(20);
+  const scrolled = propScrolled !== undefined ? propScrolled : internalScrolled;
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 transition-all duration-500",
-          scrolled ? "py-2 glass shadow-card" : "py-4 bg-transparent"
+          "relative transition-all duration-500",
+          scrolled ? "py-0 glass shadow-card" : "py-1.5 bg-transparent"
         )}
       >
         {/* Scroll Progress Bar */}
@@ -33,7 +38,7 @@ export const Header = () => {
           style={{ scaleX: useScroll().scrollYProgress, transformOrigin: "0%" }}
         />
         <div className="container flex items-center justify-between">
-          <Logo size={scrolled ? 40 : 48} />
+          <Logo size={scrolled ? 36 : 42} />
           <nav className="hidden lg:flex items-center gap-7">
             {NAV.map((n) => (
               <a key={n.href} href={n.href} className="underline-draw font-playful font-bold text-ink/80 hover:text-ink dark:text-foreground/80 dark:hover:text-foreground">
