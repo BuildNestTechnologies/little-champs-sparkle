@@ -22,11 +22,17 @@ export const WhatsAppButton = () => (
     className="fixed bottom-5 left-4 sm:left-6 z-[99] w-12 h-12 rounded-full bg-[hsl(142_71%_45%)] text-white flex items-center justify-center shadow-[0_6px_24px_hsl(142_71%_45%/0.5)] hover:shadow-[0_8px_32px_hsl(142_71%_45%/0.7)] transition-shadow"
   >
     <WhatsAppIcon />
-    {/* Subtle pulse ring */}
+    {/* Breathing glow */}
     <motion.span
-      className="absolute inset-0 rounded-full bg-[hsl(142_71%_45%)]"
-      animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
-      transition={{ duration: 2.5, repeat: Infinity }}
+      className="absolute inset-0 rounded-full bg-[hsl(142_71%_45%)] blur-md -z-10"
+      animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+    />
+    {/* Sonic pulse ring */}
+    <motion.span
+      className="absolute inset-0 rounded-full border-2 border-[hsl(142_71%_45%)]"
+      animate={{ scale: [1, 2.4], opacity: [0.8, 0] }}
+      transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
     />
   </motion.a>
 );

@@ -33,10 +33,10 @@ export const Features = () => (
         {FEATURES.map((f, i) => (
           <motion.div
             key={f.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, rotateX: 45, scale: 0.8 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
+            transition={{ type: "spring", stiffness: 100, damping: 12, delay: i * 0.1 }}
             className="group perspective-1000 h-64"
           >
             <div className="relative w-full h-full preserve-3d transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">

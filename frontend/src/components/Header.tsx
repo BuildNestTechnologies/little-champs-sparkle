@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import { useScrolled } from "@/hooks/useScrolled";
@@ -27,6 +27,11 @@ export const Header = () => {
           scrolled ? "py-2 glass shadow-card" : "py-4 bg-transparent"
         )}
       >
+        {/* Scroll Progress Bar */}
+        <motion.div
+          className="absolute bottom-0 left-0 h-[3px] bg-gradient-rainbow shadow-[0_0_8px_hsl(var(--candy)/0.5)]"
+          style={{ scaleX: useScroll().scrollYProgress, transformOrigin: "0%" }}
+        />
         <div className="container flex items-center justify-between">
           <Logo size={scrolled ? 40 : 48} />
           <nav className="hidden lg:flex items-center gap-7">

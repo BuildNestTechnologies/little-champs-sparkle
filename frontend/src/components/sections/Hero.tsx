@@ -1,17 +1,36 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 import { ArrowRight, ChevronDown, Star } from "lucide-react";
 import heroKids from "@/assets/hero-kids.png";
 import { FloatingShapes } from "@/components/ui/FloatingShapes";
+import { useMouseParallax } from "@/hooks/useMouseParallax";
+import confetti from "canvas-confetti";
 
 const WORDS = ["Nurturing", "Playful", "Creative", "Safe", "Joyful"];
 
 export const Hero = () => {
   const [i, setI] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { rotateX, rotateY } = useMouseParallax(15);
+  const { scrollYProgress } = useScroll();
+  const yParallax = useTransform(scrollYProgress, [0, 1], [0, 300]);
+
   useEffect(() => {
     const t = setInterval(() => setI((v) => (v + 1) % WORDS.length), 2200);
     return () => clearInterval(t);
   }, []);
+
+  const handleConfetti = (e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    confetti({
+      particleCount: 25,
+      spread: 60,
+      origin: { x: clientX / window.innerWidth, y: clientY / window.innerHeight },
+      colors: ["#FFD23F", "#4FC3F7", "#FF6FAE", "#7DD957"],
+      shapes: ["circle", "square"],
+      scalar: 0.8,
+    });
+  };
 
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-hero pattern-stars">
@@ -39,10 +58,10 @@ export const Hero = () => {
               <AnimatePresence mode="wait">
                 <motion.span
                   key={WORDS[i]}
-                  initial={{ y: 30, opacity: 0, rotate: -4 }}
-                  animate={{ y: 0, opacity: 1, rotate: 0 }}
-                  exit={{ y: -30, opacity: 0, rotate: 4 }}
-                  transition={{ duration: 0.45 }}
+                  initial={{ y: 20, opacity: 0, scale: 0.8, filter: "blur(8px)" }}
+                  animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+                  exit={{ y: -20, opacity: 0, scale: 1.1, filter: "blur(8px)" }}
+                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
                   className="inline-block gradient-text"
                 >
                   {WORDS[i]}
@@ -58,7 +77,11 @@ export const Hero = () => {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="#programs" className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-rainbow text-white font-bold shadow-pop btn-pop">
+            <a 
+              href="#programs" 
+              onMouseEnter={handleConfetti}
+              className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-rainbow text-white font-bold shadow-pop btn-pop"
+            >
               Explore Our World
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
@@ -83,15 +106,18 @@ export const Hero = () => {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative"
+          style={{ rotateX, rotateY }}
+          className="relative perspective-1000 preserve-3d"
         >
-          <div className="absolute -inset-6 bg-white/40 rounded-[3rem] blur-2xl" />
-          <div className="relative rounded-[2.5rem] overflow-hidden shadow-pop ring-4 ring-white animate-float-slow">
+          <div className="absolute -inset-10 bg-white/40 dark:bg-sky/5 rounded-[4rem] blur-3xl animate-pulse" />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative rounded-[2.5rem] overflow-hidden shadow-pop ring-8 ring-white dark:ring-card translate-z-20"
+          >
             <img src={heroKids} alt="Happy preschool children playing at Little Champs" className="w-full h-auto" loading="eager" />
-          </div>
+          </motion.div>
           {/* floating badges */}
           <div className="absolute -top-4 -left-4 bg-white dark:bg-card rounded-2xl shadow-card px-3 py-2 font-playful font-bold text-ink dark:text-foreground animate-float-fast flex items-center gap-2">
             <Star className="w-4 h-4 text-candy fill-candy" /> Play-Based

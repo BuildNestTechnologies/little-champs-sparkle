@@ -463,24 +463,45 @@ export const ChatBot = () => {
               <ChevronDown className="w-6 h-6 text-white" />
             </motion.span>
           ) : (
-            <motion.span
+            <motion.div
               key="open"
               initial={{ rotate: 90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               exit={{ rotate: -90, opacity: 0 }}
               transition={{ duration: 0.2 }}
+              className="relative flex items-center justify-center"
             >
-              <MessageCircleHeart className="w-6 h-6 text-white" />
-            </motion.span>
+              <motion.div
+                animate={{ 
+                  y: [0, -4, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 2.5, 
+                  ease: "easeInOut" 
+                }}
+              >
+                <MessageCircleHeart className="w-6 h-6 text-white" />
+              </motion.div>
+              {/* Little winking star */}
+              <motion.div
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, delay: 1 }}
+                className="absolute -top-1 -right-1"
+              >
+                <Star className="w-3 h-3 fill-sunshine text-sunshine" />
+              </motion.div>
+            </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Pulsing ring when closed */}
+        {/* Pulsing sonic ring when closed */}
         {!open && (
           <motion.span
-            className="absolute inset-0 rounded-full bg-candy"
-            animate={{ scale: [1, 1.45, 1], opacity: [0.5, 0, 0.5] }}
-            transition={{ duration: 2.2, repeat: Infinity }}
+            className="absolute inset-0 rounded-full border-4 border-candy"
+            animate={{ scale: [1, 2.2], opacity: [0.6, 0] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
           />
         )}
       </motion.button>

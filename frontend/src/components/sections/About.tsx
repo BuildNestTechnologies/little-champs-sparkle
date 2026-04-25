@@ -14,18 +14,23 @@ export const About = () => (
   <section id="about" className="relative py-24 lg:py-32 overflow-hidden bg-background transition-colors duration-400">
     <div className="absolute -top-20 right-0 w-[420px] h-[420px] rounded-full bg-gradient-sunshine opacity-20 dark:opacity-10 blur-3xl" />
     <div className="container relative grid lg:grid-cols-2 gap-14 items-center">
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7 }}
-        className="relative"
-      >
-        <div className="absolute -top-8 -left-8 w-40 h-40 rounded-3xl bg-gradient-candy -rotate-6 opacity-80 dark:opacity-40" />
-        <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-3xl bg-gradient-sky rotate-6 opacity-80 dark:opacity-40" />
-        <div className="relative rounded-[2.5rem] overflow-hidden shadow-pop ring-4 ring-white dark:ring-card">
-          <img src={aboutImg} alt="Cozy classroom at Little Champs" className="w-full h-auto" loading="lazy" />
-        </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="relative"
+        >
+          <div className="absolute -top-8 -left-8 w-40 h-40 rounded-3xl bg-gradient-candy -rotate-6 opacity-80 dark:opacity-40" />
+          <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-3xl bg-gradient-sky rotate-6 opacity-80 dark:opacity-40" />
+          <motion.div 
+            initial={{ clipPath: "circle(0% at 50% 50%)" }}
+            whileInView={{ clipPath: "circle(150% at 50% 50%)" }}
+            transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
+            viewport={{ once: true }}
+            className="relative rounded-[2.5rem] overflow-hidden shadow-pop ring-4 ring-white dark:ring-card"
+          >
+            <img src={aboutImg} alt="Cozy classroom at Little Champs" className="w-full h-auto" loading="lazy" />
+          </motion.div>
         <div className="absolute -bottom-6 left-6 bg-white dark:bg-card rounded-2xl shadow-card px-4 py-3 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-sunshine flex items-center justify-center">
             <Sparkles className="w-5 h-5 text-ink" />

@@ -61,12 +61,17 @@ export const Gallery = () => {
           {IMAGES.map((img, i) => (
             <motion.button
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, scale: 0.5, rotate: i % 2 === 0 ? -5 : 5, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 150,
+                damping: 15,
+                delay: i * 0.04
+              }}
               onClick={() => setOpen(i)}
-              className="group relative mb-5 block w-full break-inside-avoid rounded-3xl overflow-hidden shadow-card ring-2 ring-white btn-pop"
+              className="group relative mb-5 block w-full break-inside-avoid rounded-3xl overflow-hidden shadow-card ring-2 ring-white dark:ring-border btn-pop"
             >
               <img
                 src={img.src}
@@ -74,7 +79,9 @@ export const Gallery = () => {
                 loading="lazy"
                 className={`w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 ${img.h === "tall" ? "aspect-[3/4]" : "aspect-square"}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end justify-center pb-4">
+                <span className="text-white font-bold font-playful text-sm px-3 py-1 rounded-full bg-white/20 backdrop-blur-md">View Moment</span>
+              </div>
             </motion.button>
           ))}
         </div>

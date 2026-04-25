@@ -84,7 +84,22 @@ export const Footer = () => {
       </div>
 
       <div className="container relative mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/60 text-sm">
-        <p>© 2025 Little Champs School. Crafted with love and care.</p>
+        <div className="flex items-center gap-2">
+          <span>© 2025 Little Champs School. Crafted with love & crayons.</span>
+          <div className="flex gap-2">
+            {["--candy", "--sunshine", "--sky"].map((c, idx) => (
+              <div 
+                key={idx} 
+                className="w-1.5 h-6 rounded-full opacity-60 animate-spin-3d" 
+                style={{ 
+                  background: `hsl(var(${c}))`,
+                  animationDelay: `${idx * 0.5}s`,
+                  animationDuration: "3s"
+                }} 
+              />
+            ))}
+          </div>
+        </div>
         <p className="font-playful">…born to win</p>
       </div>
     </footer>

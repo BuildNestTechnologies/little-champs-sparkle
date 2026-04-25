@@ -47,10 +47,14 @@ export const Testimonials = () => {
           <AnimatePresence mode="popLayout">
             <motion.div
               key={r.name}
-              initial={{ opacity: 0, y: 50, rotate: 8, scale: 0.9 }}
+              initial={{ opacity: 0, y: 100, rotate: i % 2 === 0 ? 15 : -15, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -40, rotate: -8, scale: 0.9 }}
-              transition={{ duration: 0.55, ease: [0.6, 0.05, 0.2, 1] }}
+              exit={{ opacity: 0, y: -80, rotate: i % 2 === 0 ? -15 : 15, scale: 0.8 }}
+              transition={{ 
+                type: "spring",
+                stiffness: 120,
+                damping: 14
+              }}
               className={`absolute inset-0 ${ROT[i % ROT.length]}`}
             >
               <div className="relative h-full bg-white dark:bg-card rounded-2xl shadow-pop p-7 sm:p-10 flex flex-col">
@@ -58,7 +62,14 @@ export const Testimonials = () => {
                 <div className="flex items-center gap-1 mb-3">
                   {Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-sunshine text-sunshine" />)}
                 </div>
-                <p className="font-hand text-2xl sm:text-3xl text-ink dark:text-foreground leading-snug">"{r.quote}"</p>
+                <motion.p 
+                  initial={{ filter: "blur(8px)", opacity: 0 }}
+                  animate={{ filter: "blur(0px)", opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.3 }}
+                  className="font-hand text-2xl sm:text-3xl text-ink dark:text-foreground leading-snug"
+                >
+                  "{r.quote}"
+                </motion.p>
                 <div className="mt-auto pt-6 flex items-center gap-3">
                   <div className={`w-12 h-12 rounded-full ${r.color} ring-2 ring-white dark:ring-card shadow-card overflow-hidden`}>
                     <img src={r.avatar} alt={r.name} className="w-full h-full object-cover" />

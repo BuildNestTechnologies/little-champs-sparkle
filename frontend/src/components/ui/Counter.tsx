@@ -1,32 +1,37 @@
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-export const Counter = ({ end, suffix = "+", duration = 1600 }: { end: number; suffix?: string; duration?: number }) => {
-  const [val, setVal] = useState(0);
+export const Counter = ({ end, suffix = "+", duration = 2 }: { end: number; suffix?: string; duration?: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting && !started.current) {
-          started.current = true;
-          const start = performance.now();
-          const tick = (t: number) => {
-            const p = Math.min((t - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            setVal(Math.round(eased * end));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
+    if (isInView) {
+      let start = 0;
+      const step = end / (duration * 60);
+      const timer = setInterval(() => {
+        start += step;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
         }
-      },
-      { threshold: 0.4 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [end, duration]);
+      }, 1000 / 60);
+      return () => clearInterval(timer);
+    }
+  }, [isInView, end, duration]);
 
-  return <span ref={ref}>{val}{suffix}</span>;
+  return (
+    <span ref={ref} className="inline-flex overflow-hidden">
+      <motion.span
+        initial={{ y: "100%" }}
+        animate={isInView ? { y: 0 } : {}}
+        transition={{ type: "spring", stiffness: 100, damping: 15 }}
+      >
+        {count}{suffix}
+      </motion.span>
+    </span>
+  );
 };
