@@ -21,12 +21,3 @@ All AI-generated images live in `src/assets/`. Each is imported as an ES module 
 - **Reviews** — `src/components/sections/Testimonials.tsx`, `REVIEWS` array.
 - **Video tour** — replace the YouTube `embed/dQw4w9WgXcQ` URL in `src/components/sections/Gallery.tsx`.
 
-## Regenerating images
-
-If you ever want to regenerate the AI illustrations, run:
-
-```bash
-node scripts/gen-images.mjs
-```
-
-The script skips files that already exist. Delete an image first if you want it regenerated.
