@@ -86,7 +86,7 @@ export const Programs = () => {
           >
             <div className="relative rounded-3xl overflow-hidden ring-4 ring-white shadow-card">
               <img src={cur.img} alt={`${cur.name} class`} className="w-full h-auto" loading="lazy" />
-              <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full bg-${cur.color} text-white font-display font-bold shadow-pop`}>
+              <div className={`absolute top-4 left-4 px-4 py-1.5 rounded-full ${colorClass} text-white font-display font-bold shadow-pop`}>
                 {cur.age}
               </div>
             </div>
@@ -103,7 +103,7 @@ export const Programs = () => {
                   ))}
                 </div>
               </div>
-              <a href="#contact" className={`mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-${cur.color} text-white font-bold shadow-pop btn-pop`}>
+              <a href="#contact" className={`mt-8 inline-flex items-center gap-2 px-7 py-3.5 rounded-full ${colorClass} text-white font-bold shadow-pop btn-pop`}>
                 Enroll for {cur.name}
                 <ArrowRight className="w-5 h-5" />
               </a>
