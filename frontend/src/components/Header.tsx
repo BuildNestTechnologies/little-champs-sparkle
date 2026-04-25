@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/lib/utils";
 
@@ -30,21 +31,25 @@ export const Header = () => {
           <Logo size={scrolled ? 40 : 48} />
           <nav className="hidden lg:flex items-center gap-7">
             {NAV.map((n) => (
-              <a key={n.href} href={n.href} className="underline-draw font-playful font-bold text-ink/80 hover:text-ink">
+              <a key={n.href} href={n.href} className="underline-draw font-playful font-bold text-ink/80 hover:text-ink dark:text-foreground/80 dark:hover:text-foreground">
                 {n.label}
               </a>
             ))}
+            <ThemeToggle />
             <a href="#contact" className="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-rainbow text-white font-bold shadow-pop btn-pop">
               Book a Visit
             </a>
           </nav>
-          <button
-            aria-label="Open menu"
-            onClick={() => setOpen(true)}
-            className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full bg-white shadow-card text-ink"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              aria-label="Open menu"
+              onClick={() => setOpen(true)}
+              className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-white dark:bg-card shadow-card text-ink dark:text-foreground"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </header>
 

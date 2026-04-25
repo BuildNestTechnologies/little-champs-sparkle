@@ -5,7 +5,7 @@ type Feature = { icon: LucideIcon; title: string; front: string; back: string; g
 
 const FEATURES: Feature[] = [
   { icon: Palette, title: "Play-Based Learning", front: "We turn lessons into adventures.", back: "Hands-on activities, sensory play & creative projects every single day.", gradient: "bg-gradient-candy", iconBg: "bg-candy" },
-  { icon: Shield, title: "Safe & Hygienic", front: "Your child’s safety is our top priority.", back: "CCTV-monitored campus, sanitised play areas and trained staff.", gradient: "bg-gradient-sky", iconBg: "bg-sky" },
+  { icon: Shield, title: "Safe & Hygienic", front: "Your child's safety is our top priority.", back: "CCTV-monitored campus, sanitised play areas and trained staff.", gradient: "bg-gradient-sky", iconBg: "bg-sky" },
   { icon: Users, title: "12 : 1 Student Ratio", front: "Individual attention for every champ.", back: "Small group sizes mean every child is seen, heard and celebrated.", gradient: "bg-gradient-leaf", iconBg: "bg-leaf" },
   { icon: Music, title: "Cultural Activities", front: "Festivals, dance, music & more.", back: "Annual day, Diwali, Holi, Christmas — we celebrate joy in every form.", gradient: "bg-gradient-sunshine", iconBg: "bg-sunshine" },
   { icon: Trees, title: "Outdoor Play Zone", front: "Big skies, big imaginations.", back: "Slides, swings, sand pit and a green garden for daily outdoor play.", gradient: "bg-gradient-leaf", iconBg: "bg-leaf" },
@@ -13,14 +13,14 @@ const FEATURES: Feature[] = [
 ];
 
 export const Features = () => (
-  <section className="relative py-24 lg:py-32 bg-cream pattern-stars">
+  <section className="relative py-24 lg:py-32 bg-cream dark:bg-background pattern-stars transition-colors duration-400">
     <div className="container">
       <div className="text-center max-w-2xl mx-auto mb-14">
         <span className="font-hand text-3xl text-sky">why parents love us</span>
-        <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink">
+        <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink dark:text-foreground">
           What makes us <span className="gradient-text">special</span>
         </h2>
-        <p className="mt-3 text-ink/70">Hover or tap each card to peek inside.</p>
+        <p className="mt-3 text-ink/70 dark:text-foreground/60">Hover or tap each card to peek inside.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -35,8 +35,8 @@ export const Features = () => (
           >
             <div className="relative w-full h-full preserve-3d transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
               {/* front */}
-              <div className={`absolute inset-0 backface-hidden rounded-3xl ${f.gradient} p-7 shadow-card flex flex-col justify-between`}>
-                <div className={`w-14 h-14 rounded-2xl bg-white/90 shadow-soft flex items-center justify-center`}>
+              <div className={`absolute inset-0 backface-hidden rounded-3xl ${f.gradient} dark:opacity-80 p-7 shadow-card flex flex-col justify-between`}>
+                <div className="w-14 h-14 rounded-2xl bg-white/90 shadow-soft flex items-center justify-center">
                   <f.icon className="w-7 h-7 text-ink" />
                 </div>
                 <div>
@@ -45,12 +45,12 @@ export const Features = () => (
                 </div>
               </div>
               {/* back */}
-              <div className={`absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-white shadow-pop p-7 flex flex-col justify-center`}>
+              <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-3xl bg-white dark:bg-card shadow-pop p-7 flex flex-col justify-center">
                 <div className={`w-14 h-14 rounded-2xl ${f.iconBg} flex items-center justify-center mb-4`}>
                   <f.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="font-display font-bold text-xl text-ink">{f.title}</h3>
-                <p className="text-ink/70 mt-2">{f.back}</p>
+                <h3 className="font-display font-bold text-xl text-ink dark:text-foreground">{f.title}</h3>
+                <p className="text-ink/70 dark:text-foreground/70 mt-2">{f.back}</p>
               </div>
             </div>
           </motion.div>

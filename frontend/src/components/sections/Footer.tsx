@@ -84,7 +84,7 @@ export const Footer = () => {
       </div>
 
       <div className="container relative mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/60 text-sm">
-        <p>© 2025 Little Champs School. Crafted with love &amp; crayons. 🖍️</p>
+        <p>© 2025 Little Champs School. Crafted with love and care.</p>
         <p className="font-playful">…born to win</p>
       </div>
     </footer>

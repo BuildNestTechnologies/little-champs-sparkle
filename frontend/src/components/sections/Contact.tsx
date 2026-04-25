@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Check, Loader2, MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { Check, Loader2, MapPin, Phone, Mail, Clock, Send, MessageCircle } from "lucide-react";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -19,13 +19,13 @@ type FormVals = z.infer<typeof schema>;
 
 const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
   <label className="block">
-    <span className="font-playful font-bold text-ink/80 text-sm">{label}</span>
+    <span className="font-playful font-bold text-ink/80 dark:text-foreground/80 text-sm">{label}</span>
     <div className="mt-1.5">{children}</div>
     {error && <span className="block mt-1 text-xs text-destructive">{error}</span>}
   </label>
 );
 
-const inp = "w-full px-4 py-3 rounded-2xl bg-white border border-border focus:border-sky focus:ring-2 focus:ring-sky/30 outline-none transition font-body text-ink placeholder:text-ink/40";
+const inp = "w-full px-4 py-3 rounded-2xl bg-white dark:bg-muted border border-border focus:border-sky focus:ring-2 focus:ring-sky/30 outline-none transition font-body text-ink dark:text-foreground placeholder:text-ink/40 dark:placeholder:text-foreground/40";
 
 export const Contact = () => {
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
@@ -40,14 +40,14 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-cream">
+    <section id="contact" className="relative py-24 lg:py-32 bg-cream dark:bg-background transition-colors duration-400">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="font-hand text-3xl text-leaf">we'd love to meet you</span>
-          <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink">
+          <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink dark:text-foreground">
             Visit <span className="gradient-text">Little Champs</span>
           </h2>
-          <p className="mt-3 text-ink/70">Drop by, call, or send us a note — we’ll reply with a smile.</p>
+          <p className="mt-3 text-ink/70 dark:text-foreground/70">Drop by, call, or send us a note — we'll reply promptly.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
@@ -55,9 +55,9 @@ export const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
-            className="rounded-[2rem] bg-white shadow-card p-3 lg:p-4 flex flex-col"
+            className="rounded-[2rem] bg-white dark:bg-card shadow-card p-3 lg:p-4 flex flex-col"
           >
-            <div className="rounded-3xl overflow-hidden h-72 lg:h-80 ring-2 ring-white shadow-card">
+            <div className="rounded-3xl overflow-hidden h-72 lg:h-80 ring-2 ring-white dark:ring-border shadow-card">
               <iframe
                 title="Little Champs School location"
                 src="https://www.google.com/maps?q=Kamatghar+Road+Brahmanand+Nagar+Bhiwandi+421305&output=embed"
@@ -69,30 +69,42 @@ export const Contact = () => {
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-candy text-white flex items-center justify-center shrink-0"><MapPin className="w-5 h-5" /></div>
                 <div>
-                  <div className="font-display font-bold text-ink">Visit us</div>
-                  <div className="text-sm text-ink/70">Kamatghar Road, Brahmanand Nagar,<br />Bhiwandi, Maharashtra 421305</div>
-                  <div className="text-xs text-ink/50 mt-1 font-playful">Plus Code: 73C2+QR Bhiwandi</div>
+                  <div className="font-display font-bold text-ink dark:text-foreground">Visit us</div>
+                  <div className="text-sm text-ink/70 dark:text-foreground/70">Kamatghar Road, Brahmanand Nagar,<br />Bhiwandi, Maharashtra 421305</div>
+                  <div className="text-xs text-ink/50 dark:text-foreground/50 mt-1 font-playful">Plus Code: 73C2+QR Bhiwandi</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-sky text-white flex items-center justify-center shrink-0"><Phone className="w-5 h-5" /></div>
                 <div>
-                  <div className="font-display font-bold text-ink">Call us</div>
-                  <a href="tel:+917387326222" className="text-sm text-ink/70 hover:text-ink">+91 73873 26222</a>
+                  <div className="font-display font-bold text-ink dark:text-foreground">Call us</div>
+                  <a href="tel:+917387326222" className="text-sm text-ink/70 dark:text-foreground/70 hover:text-ink dark:hover:text-foreground">+91 73873 26222</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-sunshine text-ink flex items-center justify-center shrink-0"><Mail className="w-5 h-5" /></div>
                 <div>
-                  <div className="font-display font-bold text-ink">Email us</div>
-                  <a href="mailto:info@littlechampsschool.com" className="text-sm text-ink/70 hover:text-ink break-all">info@littlechampsschool.com</a>
+                  <div className="font-display font-bold text-ink dark:text-foreground">Email us</div>
+                  <a href="mailto:info@littlechampsschool.com" className="text-sm text-ink/70 dark:text-foreground/70 hover:text-ink dark:hover:text-foreground break-all">info@littlechampsschool.com</a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[hsl(142_71%_45%)] text-white flex items-center justify-center shrink-0">
+                  <MessageCircle className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-display font-bold text-ink dark:text-foreground">WhatsApp us</div>
+                  <a href="https://wa.me/917387326222?text=Hi%20Little%20Champs!%20I'm%20interested%20in%20admission%20for%20my%20child." target="_blank" rel="noreferrer" className="text-sm text-ink/70 dark:text-foreground/70 hover:text-ink dark:hover:text-foreground">
+                    +91 73873 26222
+                  </a>
+                  <div className="text-[10px] text-[hsl(142_71%_45%)] font-bold uppercase mt-0.5">Prefer instant chat? Message us!</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-xl bg-leaf text-white flex items-center justify-center shrink-0"><Clock className="w-5 h-5" /></div>
                 <div>
-                  <div className="font-display font-bold text-ink">Open</div>
-                  <div className="text-sm text-ink/70">Open daily<br />Sunday 6:30 AM – 12:00 AM</div>
+                  <div className="font-display font-bold text-ink dark:text-foreground">Open</div>
+                  <div className="text-sm text-ink/70 dark:text-foreground/70">Open daily<br />Sunday 6:30 AM – 12:00 AM</div>
                 </div>
               </div>
             </div>
@@ -103,10 +115,10 @@ export const Contact = () => {
             initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6 }}
             onSubmit={handleSubmit(onSubmit)}
-            className="rounded-[2rem] bg-white shadow-pop p-6 lg:p-8"
+            className="rounded-[2rem] bg-white dark:bg-card shadow-pop p-6 lg:p-8"
           >
-            <h3 className="font-display font-bold text-2xl text-ink">Send us an inquiry</h3>
-            <p className="text-ink/60 text-sm mb-5">We usually reply within a few hours.</p>
+            <h3 className="font-display font-bold text-2xl text-ink dark:text-foreground">Send us an inquiry</h3>
+            <p className="text-ink/60 dark:text-foreground/60 text-sm mb-5">We usually reply within a few hours.</p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <Field label="Parent name" error={errors.parent?.message}>

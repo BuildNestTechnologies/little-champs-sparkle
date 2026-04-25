@@ -16,10 +16,10 @@ export const Hero = () => {
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-hero pattern-stars">
       <FloatingShapes density="high" />
-      {/* color blobs */}
-      <div className="blob bg-sunshine w-[420px] h-[420px] -top-32 -left-20" />
-      <div className="blob bg-candy w-[360px] h-[360px] top-1/3 -right-24" />
-      <div className="blob bg-sky w-[300px] h-[300px] bottom-0 left-1/3" />
+      {/* color blobs — reduced opacity in dark for a soft glow instead of muddy patches */}
+      <div className="blob bg-sunshine w-[420px] h-[420px] -top-32 -left-20 opacity-55 dark:opacity-20" />
+      <div className="blob bg-candy w-[360px] h-[360px] top-1/3 -right-24 opacity-55 dark:opacity-15" />
+      <div className="blob bg-sky w-[300px] h-[300px] bottom-0 left-1/3 opacity-55 dark:opacity-20" />
 
       <div className="container relative z-10 grid lg:grid-cols-2 gap-10 items-center pt-10 pb-20 lg:pt-20 lg:pb-28 min-h-[88vh]">
         <div>
@@ -27,13 +27,13 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 shadow-card mb-6"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-card/80 shadow-card mb-6"
           >
             <Star className="w-4 h-4 fill-sunshine text-sunshine" />
-            <span className="font-playful font-bold text-ink">5.0 ★ Rated by Parents</span>
+            <span className="font-playful font-bold text-ink dark:text-foreground">5.0 Rated by Parents</span>
           </motion.div>
 
-          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-ink leading-[1.05]">
+          <h1 className="font-display font-bold text-5xl sm:text-6xl lg:text-7xl text-ink dark:text-foreground leading-[1.05]">
             A
             <span className="inline-block min-w-[5ch] px-2">
               <AnimatePresence mode="wait">
@@ -53,8 +53,8 @@ export const Hero = () => {
             place to grow.
           </h1>
 
-          <p className="mt-5 text-lg lg:text-xl text-ink/70 font-body max-w-xl">
-            Welcome to <span className="font-bold text-ink">Little Champs School</span> — where little steps become big leaps. A vibrant kindergarten in Bhiwandi designed for curious minds, kind hearts, and big imaginations.
+          <p className="mt-5 text-lg lg:text-xl text-ink/70 dark:text-foreground/70 font-body max-w-xl">
+            Welcome to <span className="font-bold text-ink dark:text-foreground">Little Champs School</span> — where little steps become big leaps. A vibrant kindergarten in Bhiwandi designed for curious minds, kind hearts, and big imaginations.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -62,12 +62,12 @@ export const Hero = () => {
               Explore Our World
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-ink font-bold shadow-card btn-pop">
+            <a href="#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white dark:bg-card text-ink dark:text-foreground font-bold shadow-card btn-pop">
               Book a Visit
             </a>
           </div>
 
-          <div className="mt-10 flex items-center gap-5 text-ink/70 text-sm">
+          <div className="mt-10 flex items-center gap-5 text-ink/70 dark:text-foreground/70 text-sm">
             <div className="flex -space-x-2">
               {[
                 "hsl(47 100% 62%)",
@@ -75,10 +75,10 @@ export const Hero = () => {
                 "hsl(335 100% 72%)",
                 "hsl(100 60% 60%)",
               ].map((c, idx) => (
-                <div key={idx} className="w-8 h-8 rounded-full ring-2 ring-white" style={{ background: c }} />
+                <div key={idx} className="w-8 h-8 rounded-full ring-2 ring-white dark:ring-card" style={{ background: c }} />
               ))}
             </div>
-            <span><span className="font-bold text-ink">200+ happy kids</span> • Playgroup to UKG</span>
+            <span><span className="font-bold text-ink dark:text-foreground">200+ happy kids</span> • Playgroup to UKG</span>
           </div>
         </div>
 
@@ -93,11 +93,11 @@ export const Hero = () => {
             <img src={heroKids} alt="Happy preschool children playing at Little Champs" className="w-full h-auto" loading="eager" />
           </div>
           {/* floating badges */}
-          <div className="absolute -top-4 -left-4 bg-white rounded-2xl shadow-card px-3 py-2 font-playful font-bold text-ink animate-float-fast">
-            🎨 Play-Based
+          <div className="absolute -top-4 -left-4 bg-white dark:bg-card rounded-2xl shadow-card px-3 py-2 font-playful font-bold text-ink dark:text-foreground animate-float-fast flex items-center gap-2">
+            <Star className="w-4 h-4 text-candy fill-candy" /> Play-Based
           </div>
-          <div className="absolute -bottom-4 -right-4 bg-sunshine rounded-2xl shadow-sun px-3 py-2 font-playful font-bold text-ink animate-float-med">
-            ⭐ 5.0 Rating
+          <div className="absolute -bottom-4 -right-4 bg-sunshine rounded-2xl shadow-sun px-3 py-2 font-playful font-bold text-ink animate-float-med flex items-center gap-2">
+            <Star className="w-4 h-4 text-ink fill-ink" /> 5.0 Rating
           </div>
           <div className="absolute top-1/3 -right-6 bg-candy text-white rounded-2xl shadow-pop px-3 py-2 font-playful font-bold animate-float-slow">
             12:1 Ratio

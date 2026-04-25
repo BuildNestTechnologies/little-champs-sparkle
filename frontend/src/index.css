@@ -70,6 +70,73 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* ── Dark theme ── */
+  .dark {
+    /* Deep space / midnight navy backdrop */
+    --background: 222 30% 10%;
+    --foreground: 210 30% 92%;
+
+    --card: 222 28% 14%;
+    --card-foreground: 210 30% 92%;
+
+    --popover: 222 28% 14%;
+    --popover-foreground: 210 30% 92%;
+
+    /* Brand palette stays vibrant but slightly amplified */
+    --sunshine: 47 100% 66%;
+    --sunshine-foreground: 222 35% 10%;
+    --sky: 199 92% 68%;
+    --sky-foreground: 0 0% 100%;
+    --candy: 335 100% 75%;
+    --candy-foreground: 0 0% 100%;
+    --leaf: 100 60% 64%;
+    --leaf-foreground: 222 35% 10%;
+    --cream: 222 28% 14%;
+    --ink: 210 30% 92%;
+
+    --primary: 199 92% 60%;
+    --primary-foreground: 222 35% 10%;
+
+    --secondary: 47 100% 66%;
+    --secondary-foreground: 222 35% 10%;
+
+    --muted: 222 25% 18%;
+    --muted-foreground: 210 20% 58%;
+
+    --accent: 335 100% 75%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 25% 22%;
+    --input: 222 25% 18%;
+    --ring: 199 92% 60%;
+
+    /* Dark gradients — more vivid on dark bg */
+    --gradient-rainbow: linear-gradient(135deg, hsl(47 100% 60%) 0%, hsl(335 100% 68%) 50%, hsl(199 92% 62%) 100%);
+    --gradient-sky: linear-gradient(180deg, hsl(222 30% 14%) 0%, hsl(199 50% 22%) 100%);
+    --gradient-sunshine: linear-gradient(135deg, hsl(47 100% 55%), hsl(35 100% 50%));
+    --gradient-candy: linear-gradient(135deg, hsl(335 100% 65%), hsl(290 80% 58%));
+    --gradient-leaf: linear-gradient(135deg, hsl(100 60% 55%), hsl(160 60% 48%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 30% 10%) 0%, hsl(222 35% 12%) 50%, hsl(222 28% 10%) 100%);
+
+    /* Glowing shadows for dark mode */
+    --shadow-soft: 0 10px 30px -10px hsl(199 92% 60% / 0.35);
+    --shadow-pop: 0 20px 50px -15px hsl(335 100% 72% / 0.45);
+    --shadow-sun: 0 15px 40px -10px hsl(47 100% 62% / 0.5);
+    --shadow-card: 0 8px 24px -6px hsl(0 0% 0% / 0.4);
+
+    --sidebar-background: 222 28% 12%;
+    --sidebar-foreground: 210 30% 80%;
+    --sidebar-primary: 199 92% 60%;
+    --sidebar-primary-foreground: 222 35% 10%;
+    --sidebar-accent: 222 25% 18%;
+    --sidebar-accent-foreground: 210 30% 80%;
+    --sidebar-border: 222 25% 22%;
+    --sidebar-ring: 199 92% 60%;
+  }
 }
 
 @layer base {
@@ -81,6 +148,7 @@
     @apply bg-background text-foreground;
     font-family: 'Nunito', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
   h1, h2, h3, h4, h5 {
@@ -101,6 +169,11 @@
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     border: 1px solid hsl(0 0% 100% / 0.6);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+  }
+  .dark .glass {
+    background: hsl(222 30% 12% / 0.85);
+    border: 1px solid hsl(210 30% 92% / 0.08);
   }
   .gradient-text {
     background: var(--gradient-rainbow);

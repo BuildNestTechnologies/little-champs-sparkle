@@ -10,6 +10,8 @@ import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { FloatingCallButton } from "@/components/ui/FloatingCallButton";
+import { ChatBot } from "@/components/ChatBot";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -28,6 +30,8 @@ const Index = () => {
       </main>
       <Footer />
       <FloatingCallButton />
+      <WhatsAppButton />
+      <ChatBot />
 
       <script
         type="application/ld+json"
