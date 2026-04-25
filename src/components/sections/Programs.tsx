@@ -29,8 +29,10 @@ const PROGRAMS = [
   },
 ] as const;
 
+type ProgramId = (typeof PROGRAMS)[number]["id"];
+
 export const Programs = () => {
-  const [active, setActive] = useState(PROGRAMS[0].id);
+  const [active, setActive] = useState<ProgramId>(PROGRAMS[0].id);
   const cur = PROGRAMS.find((p) => p.id === active)!;
 
   return (
