@@ -31,9 +31,17 @@ const PROGRAMS = [
 
 type ProgramId = (typeof PROGRAMS)[number]["id"];
 
+const COLOR_BG: Record<string, string> = {
+  candy: "bg-candy",
+  sunshine: "bg-sunshine",
+  sky: "bg-sky",
+  leaf: "bg-leaf",
+};
+
 export const Programs = () => {
   const [active, setActive] = useState<ProgramId>(PROGRAMS[0].id);
   const cur = PROGRAMS.find((p) => p.id === active)!;
+  const colorClass = COLOR_BG[cur.color];
 
   return (
     <section id="programs" className="relative py-24 lg:py-32 overflow-hidden bg-gradient-hero">
