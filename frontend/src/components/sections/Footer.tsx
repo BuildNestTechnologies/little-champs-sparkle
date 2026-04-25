@@ -37,7 +37,7 @@ export const Footer = () => {
           <div className="flex gap-3 mt-5">
             <a aria-label="Instagram" href="https://instagram.com/little_champs_school" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 hover:bg-candy hover:-translate-y-1 transition flex items-center justify-center"><Instagram className="w-4 h-4" /></a>
             <a aria-label="Facebook" href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-sky hover:-translate-y-1 transition flex items-center justify-center"><Facebook className="w-4 h-4" /></a>
-            <a aria-label="YouTube" href="#" className="w-10 h-10 rounded-full bg-white/10 hover:bg-candy hover:-translate-y-1 transition flex items-center justify-center"><Youtube className="w-4 h-4" /></a>
+            <a aria-label="YouTube" href="https://www.youtube.com/@LittleChampsbhiwandi" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/10 hover:bg-candy hover:-translate-y-1 transition flex items-center justify-center"><Youtube className="w-4 h-4" /></a>
           </div>
         </div>
 

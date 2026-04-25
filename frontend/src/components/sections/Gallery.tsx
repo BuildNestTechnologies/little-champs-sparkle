@@ -125,7 +125,7 @@ export const Gallery = () => {
             <div className="w-full max-w-3xl aspect-video rounded-3xl overflow-hidden shadow-pop ring-4 ring-white" onClick={(e) => e.stopPropagation()}>
               <iframe
                 title="Little Champs School video tour"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                src="https://www.youtube.com/embed/zdq7ItjDZgs"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
                 allowFullScreen

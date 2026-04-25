@@ -17,7 +17,7 @@ export const TopBar = () => (
         <span className="text-white/70 dark:text-foreground/60">Follow us:</span>
         <a aria-label="Instagram" href="https://instagram.com/little_champs_school" target="_blank" rel="noreferrer" className="hover:text-candy transition-transform hover:-translate-y-0.5"><Instagram className="w-4 h-4" /></a>
         <a aria-label="Facebook" href="#" className="hover:text-sky transition-transform hover:-translate-y-0.5"><Facebook className="w-4 h-4" /></a>
-        <a aria-label="YouTube" href="#" className="hover:text-candy transition-transform hover:-translate-y-0.5"><Youtube className="w-4 h-4" /></a>
+        <a aria-label="YouTube" href="https://www.youtube.com/@LittleChampsbhiwandi" target="_blank" rel="noreferrer" className="hover:text-candy transition-transform hover:-translate-y-0.5"><Youtube className="w-4 h-4" /></a>
         <a href="#contact" className="ml-3 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-candy text-candy-foreground font-bold animate-pulse-glow btn-pop">
           Enroll Now
         </a>
