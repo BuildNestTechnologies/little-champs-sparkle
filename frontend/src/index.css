@@ -114,7 +114,7 @@
     --input: 222 25% 18%;
     --ring: 199 92% 60%;
 
-    /* Dark gradients — more vivid on dark bg */
+    /* Dark gradients  more vivid on dark bg */
     --gradient-rainbow: linear-gradient(135deg, hsl(47 100% 60%) 0%, hsl(335 100% 68%) 50%, hsl(199 92% 62%) 100%);
     --gradient-sky: linear-gradient(180deg, hsl(222 30% 14%) 0%, hsl(199 50% 22%) 100%);
     --gradient-sunshine: linear-gradient(135deg, hsl(47 100% 55%), hsl(35 100% 50%));

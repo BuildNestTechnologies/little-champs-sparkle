@@ -35,7 +35,7 @@ export const Hero = () => {
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-hero pattern-stars">
       <FloatingShapes density="high" />
-      {/* color blobs — reduced opacity in dark for a soft glow instead of muddy patches */}
+      {/* color blobs  reduced opacity in dark for a soft glow instead of muddy patches */}
       <div className="blob bg-sunshine w-[420px] h-[420px] -top-32 -left-20 opacity-55 dark:opacity-20" />
       <div className="blob bg-candy w-[360px] h-[360px] top-1/3 -right-24 opacity-55 dark:opacity-15" />
       <div className="blob bg-sky w-[300px] h-[300px] bottom-0 left-1/3 opacity-55 dark:opacity-20" />
@@ -73,7 +73,7 @@ export const Hero = () => {
           </h1>
 
           <p className="mt-5 text-lg lg:text-xl text-ink/70 dark:text-foreground/70 font-body max-w-xl">
-            Welcome to <span className="font-bold text-ink dark:text-foreground">Little Champs School</span> — where little steps become big leaps. A vibrant kindergarten in Bhiwandi designed for curious minds, kind hearts, and big imaginations.
+            Welcome to <span className="font-bold text-ink dark:text-foreground">Little Champs School</span>  where little steps become big leaps. A vibrant kindergarten in Bhiwandi designed for curious minds, kind hearts, and big imaginations.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">

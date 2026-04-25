@@ -19,7 +19,7 @@ const PROGRAMS = [
   },
   {
     id: "lkg", name: "LKG", age: "4 – 5 yrs", img: lkg, color: "sky",
-    desc: "Structured learning meets joyful exploration — reading, writing and discovery rolled into one.",
+    desc: "Structured learning meets joyful exploration  reading, writing and discovery rolled into one.",
     activities: ["Phonics", "Number sense", "Craft projects", "Group games", "Cultural events"],
   },
   {

@@ -47,7 +47,7 @@ export const Contact = () => {
           <h2 className="mt-1 font-display font-bold text-4xl lg:text-5xl text-ink dark:text-foreground">
             Visit <span className="gradient-text">Little Champs</span>
           </h2>
-          <p className="mt-3 text-ink/70 dark:text-foreground/70">Drop by, call, or send us a note — we'll reply promptly.</p>
+          <p className="mt-3 text-ink/70 dark:text-foreground/70">Drop by, call, or send us a note  we'll reply promptly.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">

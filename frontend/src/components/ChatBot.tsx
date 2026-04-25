@@ -77,7 +77,7 @@ const KB: QA[] = [
   // ── Fees ──
   {
     keywords: ["fee", "fees", "cost", "price", "charge", "tuition", "how much", "monthly", "annual", "payment"],
-    answer: "Our fee structure is thoughtfully tailored to each program to ensure great value. Please share your phone number or WhatsApp us and our team will share the complete fee details within an hour — we are happy to help!",
+    answer: "Our fee structure is thoughtfully tailored to each program to ensure great value. Please share your phone number or WhatsApp us and our team will share the complete fee details within an hour  we are happy to help!",
     followUp: "Would you like to send us a WhatsApp message right now?",
     whatsapp: true,
   },
@@ -89,7 +89,7 @@ const KB: QA[] = [
   },
   {
     keywords: ["hygiene", "hygienic", "clean", "sanitise", "sanitize", "cleanliness"],
-    answer: "We maintain strict hygiene standards — play areas are sanitised daily, common surfaces are cleaned regularly, and we follow all recommended health protocols. A clean, healthy space is a happy learning space!",
+    answer: "We maintain strict hygiene standards  play areas are sanitised daily, common surfaces are cleaned regularly, and we follow all recommended health protocols. A clean, healthy space is a happy learning space!",
     followUp: "Would you like to know more about our safety measures?",
   },
   {
@@ -164,7 +164,7 @@ const KB: QA[] = [
   // ── Ratings & Testimonials ──
   {
     keywords: ["rating", "review", "feedback", "testimonial", "parent", "recommend", "good", "reputation"],
-    answer: "We are proud to hold a 5.0-star rating from our parent community! Here is what some parents have said:\n- 'My daughter looks forward to school every single day!' — Raviraj\n- 'Excellent execution and professional staff.' — Prashant\n- 'Overall growth for the baby — confidence, manners and learning.' — Nutan Patil",
+    answer: "We are proud to hold a 5.0-star rating from our parent community! Here is what some parents have said:\n- 'My daughter looks forward to school every single day!'  Raviraj\n- 'Excellent execution and professional staff.'  Prashant\n- 'Overall growth for the baby  confidence, manners and learning.'  Nutan Patil",
     followUp: "Would you like to visit and experience the warmth yourself?",
     whatsapp: true,
   },

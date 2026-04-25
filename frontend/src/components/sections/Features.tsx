@@ -13,7 +13,7 @@ const FEATURES: Feature[] = [
   { icon: Palette, title: "Play-Based Learning", front: "We turn lessons into adventures.", back: "Hands-on activities, sensory play & creative projects every single day.", gradient: "bg-gradient-candy", iconBg: "bg-candy", image: fPlay },
   { icon: Shield, title: "Safe & Hygienic", front: "Your child's safety is our top priority.", back: "CCTV-monitored campus, sanitised play areas and trained staff.", gradient: "bg-gradient-sky", iconBg: "bg-sky", image: fSafe },
   { icon: Users, title: "12 : 1 Student Ratio", front: "Individual attention for every champ.", back: "Small group sizes mean every child is seen, heard and celebrated.", gradient: "bg-gradient-leaf", iconBg: "bg-leaf", image: fRatio },
-  { icon: Music, title: "Cultural Activities", front: "Festivals, dance, music & more.", back: "Annual day, Diwali, Holi, Christmas — we celebrate joy in every form.", gradient: "bg-gradient-sunshine", iconBg: "bg-sunshine", image: fCulture },
+  { icon: Music, title: "Cultural Activities", front: "Festivals, dance, music & more.", back: "Annual day, Diwali, Holi, Christmas  we celebrate joy in every form.", gradient: "bg-gradient-sunshine", iconBg: "bg-sunshine", image: fCulture },
   { icon: Trees, title: "Outdoor Play Zone", front: "Big skies, big imaginations.", back: "Slides, swings, sand pit and a green garden for daily outdoor play.", gradient: "bg-gradient-leaf", iconBg: "bg-leaf", image: fOutdoor },
   { icon: Heart, title: "Loving Teachers", front: "Patient, trained and full of warmth.", back: "Our 6+ teachers are chosen for their kindness as much as their skill.", gradient: "bg-gradient-candy", iconBg: "bg-candy", image: fTeachers },
 ];

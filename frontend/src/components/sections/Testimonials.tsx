@@ -8,7 +8,7 @@ import a3 from "@/assets/avatar-mom-2.png";
 const REVIEWS = [
   { name: "Raviraj", when: "Parent", quote: "Nice place for children. Loving place. My daughter looks forward to school every single day!", avatar: a2, color: "bg-sunshine" },
   { name: "Prashant", when: "Parent", quote: "Excellent execution and professional staff. The teachers truly care about each child's growth.", avatar: a1, color: "bg-sky" },
-  { name: "Nutan Patil", when: "Parent", quote: "Overall growth for the baby — confidence, manners and learning. Highly recommend Little Champs!", avatar: a3, color: "bg-candy" },
+  { name: "Nutan Patil", when: "Parent", quote: "Overall growth for the baby  confidence, manners and learning. Highly recommend Little Champs!", avatar: a3, color: "bg-candy" },
 ];
 
 const ROT = ["-rotate-3", "rotate-2", "-rotate-1"];
